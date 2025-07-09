@@ -4,6 +4,9 @@ import { useState } from "react";
 import type { Project } from "@/types";
 import ProjectCard from "@/components/project-card";
 import ProjectModal from "@/components/project-modal";
+import AiSuggestionDialog from "@/components/ai-suggestion-dialog";
+import { Button } from "@/components/ui/button";
+import { Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type PortfolioClientPageProps = {
@@ -12,6 +15,7 @@ type PortfolioClientPageProps = {
 
 export default function PortfolioClientPage({ projects }: PortfolioClientPageProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isSuggestionOpen, setIsSuggestionOpen] = useState(false);
 
   const handleViewDetails = (project: Project) => {
     setSelectedProject(project);
@@ -20,9 +24,23 @@ export default function PortfolioClientPage({ projects }: PortfolioClientPagePro
   const handleCloseModal = () => {
     setSelectedProject(null);
   };
+
+  const handleSuggestionSelect = (projectId: string) => {
+    const project = projects.find(p => p.id === projectId);
+    if (project) {
+        setSelectedProject(project);
+    }
+  };
   
   return (
     <>
+      <div className="mb-8 flex justify-center">
+        <Button onClick={() => setIsSuggestionOpen(true)} variant="outline">
+          <Sparkles className="mr-2 h-4 w-4 text-accent" />
+          Get an AI Project Suggestion
+        </Button>
+      </div>
+      
       <div
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
         style={{ perspective: "1000px" }}
@@ -56,6 +74,12 @@ export default function PortfolioClientPage({ projects }: PortfolioClientPagePro
         isOpen={!!selectedProject}
         onClose={handleCloseModal}
       />
+
+      <AiSuggestionDialog
+        isOpen={isSuggestionOpen}
+        onOpenChange={setIsSuggestionOpen}
+        onSuggestionSelect={handleSuggestionSelect}
+       />
     </>
   );
 }
