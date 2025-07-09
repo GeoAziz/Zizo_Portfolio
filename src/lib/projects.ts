@@ -8,7 +8,8 @@ const projectsFilePath = path.join(process.cwd(), 'public/data/projects.json');
 export async function getProjects(): Promise<Project[]> {
   try {
     const data = await fs.readFile(projectsFilePath, 'utf-8');
-    const projects: Project[] = JSON.parse(data);
+    const jsonData = JSON.parse(data);
+    const projects: Project[] = jsonData.projects || [];
     // Sort projects by date descending
     return projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
