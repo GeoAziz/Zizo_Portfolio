@@ -142,8 +142,10 @@ export default function HireMeCTA() {
                  <a href="#" className="text-muted-foreground hover:text-accent"><Github className="h-6 w-6"/></a>
                  <a href="#" className="text-muted-foreground hover:text-accent"><Mail className="h-6 w-6"/></a>
              </div>
-             <Button variant="outline">
+             <Button asChild variant="outline">
+                <a href="/resume.pdf" download="DevMahnX_Resume.pdf">
                  <Download className="mr-2 h-4 w-4"/> Download Resume
+                </a>
              </Button>
           </SheetFooter>
         </SheetContent>

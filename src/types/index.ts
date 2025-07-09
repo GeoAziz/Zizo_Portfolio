@@ -12,6 +12,7 @@ export type Project = {
   category: ProjectCategory[];
   stack: string[];
   image: string;
+  imageHint?: string;
   live: string;
   github: string;
   role: string;

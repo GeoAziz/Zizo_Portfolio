@@ -36,7 +36,7 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
             alt={project.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-110"
-            data-ai-hint="futuristic technology"
+            data-ai-hint={project.imageHint || "futuristic technology"}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         </div>

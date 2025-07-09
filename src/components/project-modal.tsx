@@ -45,7 +45,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                             alt={project.title}
                             fill
                             className="object-cover"
-                            data-ai-hint="abstract code"
+                            data-ai-hint={project.imageHint || "abstract code"}
                             />
                         </div>
                          <div className="flex gap-4">
