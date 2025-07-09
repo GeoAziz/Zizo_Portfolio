@@ -36,10 +36,12 @@ export default function AiSuggestionDialog({
             <Lightbulb className="h-6 w-6" />
             AI Project Suggestion
           </AlertDialogTitle>
-          <AlertDialogDescription className="text-base text-muted-foreground pt-4">
-            <p className="font-semibold text-primary-foreground/90">Based on your interests, you might like:</p>
-            <p className="text-lg font-bold text-accent my-2">{suggestion.projectId}</p>
-            <p className="italic">"{suggestion.reason}"</p>
+          <AlertDialogDescription asChild className="text-base text-muted-foreground pt-4">
+            <div>
+              <p className="font-semibold text-primary-foreground/90">Based on your interests, you might like:</p>
+              <p className="text-lg font-bold text-accent my-2">{suggestion.projectId}</p>
+              <p className="italic">"{suggestion.reason}"</p>
+            </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
