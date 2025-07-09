@@ -1,0 +1,63 @@
+
+[
+  {
+    "id": "zizo-algox",
+    "title": "Zizo_AlgoX",
+    "description": "A futuristic algo-trading platform with real-time dashboards and predictive analytics.",
+    "category": ["Fintech", "AI"],
+    "image": "https://placehold.co/600x400.png",
+    "stack": ["Next.js", "Tailwind", "Firebase", "Chart.js"],
+    "live": "https://example.com",
+    "github": "https://github.com"
+  },
+  {
+    "id": "sentinel-secure",
+    "title": "Sentinel Secure",
+    "description": "Advanced cybersecurity suite for threat detection and prevention in enterprise networks.",
+    "category": ["CyberSec", "AI"],
+    "image": "https://placehold.co/600x400.png",
+    "stack": ["Python", "Django", "React", "Docker"],
+    "live": "https://example.com",
+    "github": "https://github.com"
+  },
+  {
+    "id": "vita-nexus",
+    "title": "VitaNexus",
+    "description": "A decentralized health record system ensuring patient data privacy and accessibility.",
+    "category": ["HealthTech", "Web"],
+    "image": "https://placehold.co/600x400.png",
+    "stack": ["Solidity", "Next.js", "IPFS", "The Graph"],
+    "live": "https://example.com",
+    "github": "https://github.com"
+  },
+  {
+    "id": "devmahnx-portfolio-v1",
+    "title": "Portfolio v1",
+    "description": "The first iteration of my personal portfolio, built with classic web technologies.",
+    "category": ["Web"],
+    "image": "https://placehold.co/600x400.png",
+    "stack": ["HTML", "CSS", "JavaScript"],
+    "live": "https://example.com",
+    "github": "https://github.com"
+  },
+  {
+    "id": "fin-forecast-ai",
+    "title": "FinForecast AI",
+    "description": "An AI-driven tool for financial market forecasting using deep learning models.",
+    "category": ["Fintech", "AI"],
+    "image": "https://placehold.co/600x400.png",
+    "stack": ["TensorFlow", "Flask", "React", "PostgreSQL"],
+    "live": "https://example.com",
+    "github": "https://github.com"
+  },
+  {
+    "id": "connect-sphere",
+    "title": "ConnectSphere",
+    "description": "A modern social networking platform with a focus on privacy and user control.",
+    "category": ["Web"],
+    "image": "https://placehold.co/600x400.png",
+    "stack": ["Node.js", "Express", "Vue.js", "MongoDB"],
+    "live": "https://example.com",
+    "github": "https://github.com"
+  }
+]
