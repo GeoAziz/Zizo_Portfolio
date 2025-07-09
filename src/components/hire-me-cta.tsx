@@ -57,12 +57,10 @@ export default function HireMeCTA() {
       form.reset();
       setIsOpen(false);
     } else {
-        // This is a simplified error handling. 
-        // In a real app, you might iterate over result.errors to show specific field errors.
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Please check the form for errors.",
+        description: result.message || "Please check the form for errors.",
       });
     }
   };
@@ -138,9 +136,12 @@ export default function HireMeCTA() {
           </div>
           <SheetFooter className="sm:justify-between flex-col sm:flex-row gap-4">
              <div className="flex items-center gap-4">
-                 <a href="#" className="text-muted-foreground hover:text-accent"><Linkedin className="h-6 w-6"/></a>
-                 <a href="#" className="text-muted-foreground hover:text-accent"><Github className="h-6 w-6"/></a>
-                 <a href="#" className="text-muted-foreground hover:text-accent"><Mail className="h-6 w-6"/></a>
+                 {/* Replace with your actual LinkedIn profile URL */}
+                 <a href="https://linkedin.com/in/your-profile-name" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent"><Linkedin className="h-6 w-6"/></a>
+                 {/* Replace with your actual GitHub profile URL */}
+                 <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent"><Github className="h-6 w-6"/></a>
+                 {/* Replace with your actual email address */}
+                 <a href="mailto:your-email@example.com" className="text-muted-foreground hover:text-accent"><Mail className="h-6 w-6"/></a>
              </div>
              <Button asChild variant="outline">
                 <a href="/resume.pdf" download="DevMahnX_Resume.pdf">

@@ -1,6 +1,11 @@
 'use server';
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+
+// The user must add their RESEND_API_KEY to the .env file
+// The RESEND_API_KEY environment variable is automatically picked up by the Resend SDK.
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -23,14 +28,40 @@ export async function submitContactForm(prevState: any, formData: FormData) {
     };
   }
   
-  // For MVP, we'll just log the data to the console.
-  // In a real app, you would send an email, save to a database, etc.
-  console.log('New contact form submission:');
-  console.log(validatedFields.data);
+  const { name, email, message } = validatedFields.data;
 
-  return {
-    message: 'Thank you for your message! I will get back to you soon.',
-    errors: {},
-    success: true,
-  };
+  try {
+    // Replace with your desired email address to receive notifications
+    const toEmail = "your-email@example.com"; 
+    
+    // Replace with your verified Resend domain email.
+    // This email must be from a domain you've verified in your Resend account.
+    // Example: "contact@yourdomain.com"
+    const fromEmail = "onboarding@resend.dev"; 
+
+    await resend.emails.send({
+      from: `Contact Form <${fromEmail}>`,
+      to: [toEmail],
+      subject: `New message from ${name} via Zizo_ResumeVerse`,
+      reply_to: email,
+      html: `<p>You have a new contact form submission:</p>
+             <p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong></p>
+             <p>${message.replace(/\n/g, '<br>')}</p>`,
+    });
+
+    return {
+      message: 'Thank you for your message! I will get back to you soon.',
+      errors: {},
+      success: true,
+    };
+  } catch (error) {
+      console.error("Email sending failed:", error);
+      return {
+          message: 'Sorry, something went wrong and the message could not be sent. Please try again later.',
+          errors: {},
+          success: false,
+      };
+  }
 }
