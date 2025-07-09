@@ -14,7 +14,8 @@
  *
  * async function MyComponent() {
  *   const projectId = 'some-project-id';
- *   const nextProjectSuggestion = await suggestNextProject({ currentProjectId: projectId });
+ *   const allProjects = [{id: 'proj1', title: 'Project 1'}, {id: 'proj2', title: 'Project 2'}];
+ *   const nextProjectSuggestion = await suggestNextProject({ currentProjectId: projectId, allProjects });
  *   return <div>Next project suggestion: {nextProjectSuggestion.projectId}</div>;
  * }
  * ```
@@ -30,6 +31,10 @@ import {z} from 'genkit';
 const ProjectSuggestionInputSchema = z.object({
   currentProjectId: z.string().describe('The ID of the project the user is currently viewing.'),
   userHistory: z.array(z.string()).optional().describe('A list of project IDs the user has previously viewed, in order.'),
+  allProjects: z.array(z.object({
+    id: z.string(),
+    title: z.string(),
+  })).describe('A list of all available projects with their IDs and titles.'),
 });
 export type ProjectSuggestionInput = z.infer<typeof ProjectSuggestionInputSchema>;
 
@@ -54,6 +59,11 @@ const prompt = ai.definePrompt({
   },
   prompt: `You are an AI assistant that suggests the next project a user should view in a portfolio.
 
+  Here is a list of all available projects you can choose from:
+  {{#each allProjects}}
+  - ID: {{this.id}}, Title: {{this.title}}
+  {{/each}}
+
   The user is currently viewing project with ID: {{{currentProjectId}}}.
 
   Here's a list of projects the user has viewed previously:
@@ -66,9 +76,9 @@ const prompt = ai.definePrompt({
   {{/if}}
 
   Suggest the next project the user should view, and explain your reasoning.
-  Ensure that the project ID in the response is valid.
+  You MUST choose a project ID from the provided list of available projects.
   Be creative in the suggestion, avoid suggesting the same project twice in a row.
-  Do not suggest the current project.
+  Do not suggest the current project with ID {{{currentProjectId}}}.
   Take into account the projects the user has already viewed.
   `, 
 });

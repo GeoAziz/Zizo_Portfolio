@@ -58,6 +58,7 @@ export default function PortfolioClientPage({ projects, categories }: PortfolioC
           const suggestion = await suggestNextProject({
             currentProjectId: lastViewedId,
             userHistory: viewHistory,
+            allProjects: projects.map((p) => ({ id: p.id, title: p.title })),
           });
           
           const nextProject = projects.find(p => p.id === suggestion.projectId);
@@ -66,6 +67,8 @@ export default function PortfolioClientPage({ projects, categories }: PortfolioC
               setAiSuggestion(suggestion);
               setSuggestedProject(nextProject);
           } else {
+             // Log the error but don't throw, to let the catch block handle user feedback.
+             console.error("AI suggested a project ID that was not found:", suggestion.projectId);
              throw new Error("Suggested project not found");
           }
 
