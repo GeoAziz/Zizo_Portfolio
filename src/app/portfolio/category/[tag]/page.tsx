@@ -1,5 +1,5 @@
 import { getProjects, getCategories } from "@/lib/projects";
-import PortfolioClientPage from "../portfolio-client-page";
+import PortfolioClientPage from "../../portfolio-client-page";
 import PortfolioHeader from "@/components/portfolio-header";
 import type { ProjectCategory } from "@/types";
 import { redirect } from "next/navigation";
