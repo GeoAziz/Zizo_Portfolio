@@ -6,7 +6,6 @@ import type { Project } from "@/types";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
   project: Project;
@@ -29,29 +28,30 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
           },
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="relative h-full rounded-lg border-2 border-primary/20 bg-card/50 backdrop-blur-sm shadow-lg transition-shadow duration-300 group-hover:border-accent group-hover:shadow-2xl group-hover:shadow-accent/20"
+        className="relative flex h-full flex-col rounded-lg border-2 border-primary/20 bg-card/50 backdrop-blur-sm shadow-lg transition-shadow duration-300 group-hover:border-accent group-hover:shadow-2xl group-hover:shadow-accent/20"
       >
-        <div className="flex h-full flex-col p-6">
-          <div className="relative mb-4 h-48 w-full overflow-hidden rounded-md">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-110"
-              data-ai-hint="futuristic technology"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          </div>
+        <div className="relative mb-4 h-48 w-full overflow-hidden rounded-t-md">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            data-ai-hint="futuristic technology"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        </div>
+
+        <div className="flex h-full flex-col p-6 pt-0">
           <h3 className="mb-2 text-2xl font-bold font-headline text-primary-foreground group-hover:text-accent transition-colors">
             {project.title}
           </h3>
-          <p className="mb-4 flex-grow text-muted-foreground">
+          <p className="mb-4 flex-grow text-sm text-muted-foreground">
             {project.description}
           </p>
           <div className="mb-4 flex flex-wrap gap-2">
-            {project.category.map((cat) => (
-              <Badge key={cat} variant="secondary" className="bg-primary/20 text-primary-foreground/80">
-                {cat}
+            {project.stack.slice(0, 4).map((tech) => (
+              <Badge key={tech} variant="secondary" className="bg-primary/20 text-primary-foreground/80">
+                {tech}
               </Badge>
             ))}
           </div>

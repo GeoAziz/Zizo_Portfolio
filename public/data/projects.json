@@ -1,63 +1,92 @@
-
 [
   {
     "id": "zizo-algox",
     "title": "Zizo_AlgoX",
-    "description": "A futuristic algo-trading platform with real-time dashboards and predictive analytics.",
+    "description": "A futuristic algorithmic trading platform with real-time dashboards and AI-powered signal analysis.",
+    "features": [
+      "Real-time market data visualization",
+      "AI-driven trade signal generation",
+      "Portfolio performance tracking",
+      "Secure user authentication"
+    ],
     "category": ["Fintech", "AI"],
+    "stack": ["Next.js", "Firebase", "Tailwind CSS", "Chart.js"],
     "image": "https://placehold.co/600x400.png",
-    "stack": ["Next.js", "Tailwind", "Firebase", "Chart.js"],
-    "live": "https://example.com",
-    "github": "https://github.com"
+    "live": "#",
+    "github": "#",
+    "role": "Fullstack Engineer",
+    "status": "✅ Live",
+    "type": "project",
+    "date": "2024-05-15"
   },
   {
-    "id": "sentinel-secure",
-    "title": "Sentinel Secure",
-    "description": "Advanced cybersecurity suite for threat detection and prevention in enterprise networks.",
-    "category": ["CyberSec", "AI"],
+    "id": "zizo-netsentinel",
+    "title": "Zizo_NetSentinel",
+    "description": "A cutting-edge network monitoring tool for visualizing and defending against cyber threats.",
+    "features": [
+      "Live network traffic visualization",
+      "Automated threat detection alerts",
+      "Honeypot deployment and monitoring",
+      "Comprehensive attack analytics dashboard"
+    ],
+    "category": ["Cybersecurity", "Web"],
+    "stack": ["React", "D3.js", "Node.js", "WebSocket"],
     "image": "https://placehold.co/600x400.png",
-    "stack": ["Python", "Django", "React", "Docker"],
-    "live": "https://example.com",
-    "github": "https://github.com"
+    "live": "#",
+    "github": "#",
+    "role": "Lead Developer",
+    "status": "✅ Live",
+    "type": "project",
+    "date": "2023-11-20"
   },
   {
-    "id": "vita-nexus",
-    "title": "VitaNexus",
-    "description": "A decentralized health record system ensuring patient data privacy and accessibility.",
-    "category": ["HealthTech", "Web"],
+    "id": "zizo-healthverse",
+    "title": "Zizo_HealthVerse",
+    "description": "A sci-fi virtual healthcare universe with clinic systems and holographic dashboards.",
+    "features": [
+      "3D interactive clinic maps",
+      "Patient data management system",
+      "Holographic medical data displays",
+      "Telemedicine integration"
+    ],
+    "category": ["HealthTech", "AI"],
+    "stack": ["Next.js", "Tailwind", "Firebase", "Three.js"],
     "image": "https://placehold.co/600x400.png",
-    "stack": ["Solidity", "Next.js", "IPFS", "The Graph"],
-    "live": "https://example.com",
-    "github": "https://github.com"
+    "live": "#",
+    "github": "#",
+    "role": "UI/UX Engineer",
+    "status": "🔒 In Dev",
+    "type": "project",
+    "date": "2024-07-01"
   },
   {
-    "id": "devmahnx-portfolio-v1",
-    "title": "Portfolio v1",
-    "description": "The first iteration of my personal portfolio, built with classic web technologies.",
+    "id": "lab-aero-ui",
+    "title": "AeroUI Engine",
+    "description": "AI UI engine test built using OpenAI & Three.js to generate dynamic 3D interfaces.",
+    "features": ["Generates UI components from text prompts", "Renders components in a 3D space"],
+    "category": ["AI", "Web"],
+    "stack": ["Three.js", "Genkit", "Vite"],
+    "image": "https://placehold.co/600x400.png",
+    "live": "#",
+    "github": "#",
+    "role": "R&D Developer",
+    "status": "🧪 Prototype",
+    "type": "lab",
+    "date": "2024-06-10"
+  },
+  {
+    "id": "archive-geocities-page",
+    "title": "My First Homepage",
+    "description": "A glorious GeoCities-era website, complete with animated GIFs and a MIDI soundtrack.",
+    "features": ["Under construction GIFs", "Guestbook CGI script", "Tiled background image"],
     "category": ["Web"],
+    "stack": ["HTML", "Perl", "Paint Shop Pro"],
     "image": "https://placehold.co/600x400.png",
-    "stack": ["HTML", "CSS", "JavaScript"],
-    "live": "https://example.com",
-    "github": "https://github.com"
-  },
-  {
-    "id": "fin-forecast-ai",
-    "title": "FinForecast AI",
-    "description": "An AI-driven tool for financial market forecasting using deep learning models.",
-    "category": ["Fintech", "AI"],
-    "image": "https://placehold.co/600x400.png",
-    "stack": ["TensorFlow", "Flask", "React", "PostgreSQL"],
-    "live": "https://example.com",
-    "github": "https://github.com"
-  },
-  {
-    "id": "connect-sphere",
-    "title": "ConnectSphere",
-    "description": "A modern social networking platform with a focus on privacy and user control.",
-    "category": ["Web"],
-    "image": "https://placehold.co/600x400.png",
-    "stack": ["Node.js", "Express", "Vue.js", "MongoDB"],
-    "live": "https://example.com",
-    "github": "https://github.com"
+    "live": "#",
+    "github": "#",
+    "role": "Webmaster",
+    "status": "Legacy",
+    "type": "archive",
+    "date": "1998-08-20"
   }
 ]

@@ -1,21 +1,32 @@
 import { getProjects, getCategories } from "@/lib/projects";
 import PortfolioClientPage from "./portfolio-client-page";
+import PortfolioHeader from "@/components/portfolio-header";
 
-export default async function PortfolioPage() {
-  const projects = await getProjects();
+export default async function PortfolioPage({
+  searchParams,
+}: {
+  searchParams?: { category?: string };
+}) {
+  const allProjects = await getProjects();
   const categories = await getCategories();
+  const currentCategory = searchParams?.category || "All";
+
+  const projects = allProjects.filter(p => {
+    if (p.type !== 'project') return false;
+    if (currentCategory === "All") return true;
+    return p.category.includes(currentCategory as any);
+  });
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl md:text-7xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-          Project Deck
-        </h1>
-        <p className="text-muted-foreground mt-4 text-lg">
-          A multiverse of creations. Filter by category to explore.
-        </p>
-      </div>
-      <PortfolioClientPage projects={projects} categories={categories} />
-    </main>
+    <>
+      <PortfolioHeader
+        title="Project Deck"
+        categories={categories}
+        showFilters={true}
+      />
+      <main className="container mx-auto px-4 py-8">
+        <PortfolioClientPage projects={projects} />
+      </main>
+    </>
   );
 }
